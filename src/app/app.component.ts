@@ -14,7 +14,7 @@ export class AppComponent implements OnInit{
   createQuestion: boolean;
   questionNo: number;
   questionType: string;
-  isMcq:boolean;
+  //isMcq:boolean;
   questionForm: FormGroup;
   questions:FormArray;
   options:FormArray;
@@ -42,8 +42,8 @@ export class AppComponent implements OnInit{
     return this.fb.group({
       questionText:'',
       marks:'',
-      isMcq:false,
-      questionType:'mcq',
+      //isMcq:false,
+      questionType:'',
       correctOption:['',ValidateCorrectOption],
       options: this.fb.array([this.createOptionForm(1)])
     });
@@ -121,6 +121,7 @@ export class AppComponent implements OnInit{
     this.testData.subject = qData.subject;
     this.testData.timeLimitInMins = qData.time;
     this.testData.questions = qData.questions;
+    this.testData.authorID = 'T1';
     this.testService.createTest(this.testData).subscribe(res=> console.log(res));
   }
 }

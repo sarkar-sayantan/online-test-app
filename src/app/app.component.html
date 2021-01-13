@@ -33,9 +33,9 @@
             <div class="col-9">
               <label class="form-label mb-2">Question Type</label><br>
               <mat-radio-group
-                  formControlName="isMcq">
-                  <mat-radio-button [value]="true">MCQ</mat-radio-button>
-                  <mat-radio-button [value]="false" class="ml-3">Non-MCQ</mat-radio-button>
+                  formControlName="questionType">
+                  <mat-radio-button [value]="mcq">MCQ</mat-radio-button>
+                  <mat-radio-button [value]="non-mcq" class="ml-3">Non-MCQ</mat-radio-button>
               </mat-radio-group>
             </div>
             <div class="col-3">
@@ -45,7 +45,7 @@
               </mat-form-field>
             </div>
           </div>
-          <div class="row" *ngIf="q.get('isMcq').value" >
+          <div class="row" *ngIf="q.get('questionType').value == 'mcq' " >
             <div *ngFor="let ops of q.get('options')['controls']; let opi = index" formArrayName="options">
               <div class="" [formGroup]="ops">
                 <div class="col">

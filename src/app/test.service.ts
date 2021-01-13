@@ -11,10 +11,10 @@ export class TestService {
   constructor(private http:HttpClient) { }
 
   createTest(test: Test){
-    return this.http.post("http://192.168.0.108/tests",test);
+    return this.http.post("http://localhost:8787/tests",test);
   }
 
   getTest(testID: string){
-    return this.http.get("http://192.168.0.108/tests/"+testID);
+    return this.http.get("http://localhost:8787/tests/"+testID);
   }
 }
